@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background-color: #f7f7f7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: #fff;
+    width: 90vw;
+    max-width: 400px;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.yourdetails {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.input-field, .dropdown, .submit {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    color: #333;
+    box-sizing: border-box; /* Ensures padding is included in height */
+}
+
+.input-field:focus, .dropdown:focus {
+    border-color: #007BFF;
+    outline: none;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.row .input-field, .row .dropdown {
+    flex: 1;
+    min-width: 0; /* Prevents overflow issues */
+}
+
+.submit {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-weight: 500;
+}
+
+.submit:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .row {
+        flex-direction: column;
+    }
+
+    .row .input-field, .row .dropdown {
+        width: 100%; /* Full width on smaller screens */
+    }
+   
+    .container {
+        padding: 1.5rem;
+    }
+    
+    #year{
+        margin-top: -10px;
+    }
+    #course{
+        margin-top: -20px;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .row {
+        gap: 10px;
+    }
+}
+
+@media (max-width: 1025px) {
+    .row {
+        gap: 10px;
+    }
+}
+
+@media (max-width: 1440px) {
+    .row {
+        gap: 10px;
+    }
+}

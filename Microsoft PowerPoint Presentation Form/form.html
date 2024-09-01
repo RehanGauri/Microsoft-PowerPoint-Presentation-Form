@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Sheet Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="yourdetails">Enter Details</div>
+        <form method="post" class="form" name="google-sheet">
+            <!-- First Name Input -->
+            <label for="firstName"></label>
+            <input type="text" id="firstName" class="input-field" name="First Name" placeholder="First Name" required>
+            
+            <!-- Last Name Input -->
+            <label for="lastName"></label>
+            <input type="text" id="lastName" class="input-field" name="Last Name" placeholder="Last Name" required>
+            
+            <!-- Year and Course Dropdowns in a Row -->
+            <div class="row">
+                <!-- Year Dropdown -->
+                <label for="year"></label>
+                <select id="year" class="input-field dropdown" name="Year" required>
+                    <option value="" disabled selected>Select Year</option>
+                    <option value="FY">FY</option>
+                    <option value="SY">SY</option>
+                    <option value="TY">TY</option>
+                </select>
+
+                <!-- Course Dropdown -->
+                <label for="course"></label>
+                <select id="course" class="input-field dropdown" name="Course" required>
+                    <option value="" disabled selected>Select Course</option>
+                    <option value="BCOM">BCOM</option>
+                    <option value="BAF">BAF</option>
+                    <option value="BMS">BMS</option>
+                    <option value="BBI">BBI</option>
+                    <option value="BFM">BFM</option>
+                    <option value="BA">BA</option>
+                    <option value="BSC">BSC</option>
+                    <option value="BSCIT">BSC IT</option>
+                </select>
+            </div>
+            
+            <!-- Topic Dropdown -->
+            <label for="topic"></label>
+            <select id="topic" class="input-field dropdown" name="Topic" required>
+                <option value="" disabled selected>Select Topic</option>
+                <option value="Effects of Social Media on Mental Health">Effects of Social Media on Mental Health</option>
+                <option value="Significance of Skills in Career Building">Significance of Skills in Career Building</option>
+                <option value="Climate Change: It's Time to Act">Climate Change: It's Time to Act</option>
+                <option value="Coping with Entrance Exam Anxiety: Key Strategies for Students">Coping with Entrance Exam Anxiety: Key Strategies for Students</option>
+            </select>
+
+            <!-- Submit Button -->
+            <input type="submit" name="submit" value="Submit" class="submit">
+        </form>
+    </div>
+
+    <script>
+        // Form To Gsheets
+        const scriptURL = 'https://script.google.com/macros/s/AKfycby-HxEXPlCODpvMTlwmRzVUDKiPqMmXPus4Cl9kTAG7VncpDIYxgjRkTqXv7CgKbtA8/exec';
+        const form = document.forms['google-sheet'];
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => alert('Form submitted successfully!'))
+                .catch(error => console.error('Error!', error.message));
+        });
+    </script>
+
+</body>
+</html>
